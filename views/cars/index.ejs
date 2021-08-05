@@ -1,0 +1,28 @@
+
+<% layout('layouts/boilerplate')%>
+
+<h1>All Cars</h1>
+<div>
+    <a href="/cars/new">Add Car</a>
+</div>
+<% for (let car of cars){%>
+<div class="card" mb-3>
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid" alt="" src="<%=car.image%>">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= car.make %> <%= car.model %> </h5>
+                <p class="card-text">
+                    <%= car.year %>
+                </p>
+                <p class="card-text">
+                    <small class="text-muted"><%= car.odometer%></small>
+                </p>
+                <a class="btn btn-primary" href="/cars/<%=car._id%>">View <%= car.make %> <%= car.model %></a>
+            </div>
+        </div>
+    </div>
+</div>
+<% }%>
